@@ -1,0 +1,31 @@
+<header>
+  <div class="header-wrapper">
+    <nav class="menu">
+      <ul class="nav-list">
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <a routerLink="/">Главная</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/catalog">Каталог</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/about">О компании</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/delivery">Доставка</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/news">Новости</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/contacts">Контакты</a>
+        </li>
+      </ul>
+    </nav>
+    
+    <div class="profile-block">
+      <a routerLink="/cart"><img src="assets/img/icons/cart.png" alt=""></a>
+      <a routerLink="/login" class="login">Войти</a>
+    </div>    
+  </div> 
+</header>
