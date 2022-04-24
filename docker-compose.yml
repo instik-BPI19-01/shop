@@ -1,0 +1,32 @@
+services:
+    db:
+      image: postgres:10
+      ports:
+        - "5432:5432"
+      environment:
+        POSTGRES_DB: db_avito
+        POSTGRES_USER: db_user
+        POSTGRES_PASSWORD: db_pwd
+      volumes:
+        - ./postgres/db:/var/lib/postgresql/data
+
+
+    backend:
+      build:
+        context: ./
+        dockerfile: Dockerfile
+
+      command: python manage.py runserver 0.0.0.0:8000
+#      command: gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 4 --timeout 300
+
+      volumes:
+        - ./config:/server/config
+        - ./modules:/server/modules
+        - ./media:/server/media
+        - ./templates:/server/templates
+        - ./data:/server/app/data
+      ports:
+        - "8000:8000"
+      depends_on:
+        - db
+

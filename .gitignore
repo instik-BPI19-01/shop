@@ -1,0 +1,12 @@
+env/
+.idea/
+*.iml
+
+*.sqlite3
+__pycache__/
+*.pyc
+docker/revision
+/venv
+/media
+/static/
+postgres/
