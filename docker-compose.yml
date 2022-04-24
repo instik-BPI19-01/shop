@@ -26,7 +26,7 @@ services:
         - ./templates:/server/templates
         - ./data:/server/app/data
       ports:
-        - "8000:8000"
+        - "9090:8000"
       depends_on:
         - db
 
