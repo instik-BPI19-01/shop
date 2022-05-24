@@ -1,0 +1,22 @@
+GET localhost:9090/api/core/auth/user-info/
+Authorization: Token 32e0dddaf69b4c62d3d807f58597d0abcde9eca2
+###
+
+POST localhost:9090/api/core/auth/login/
+Content-Type: application/json
+
+{
+  "username": "zdarova",
+  "password": "romaroma123"
+}
+###
+
+POST localhost:9090/api/core/auth/register/
+Content-Type: application/json
+
+{
+  "username": "zdarova",
+  "password": "romaroma123"
+}
+###
+

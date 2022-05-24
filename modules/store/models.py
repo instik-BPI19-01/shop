@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -5,6 +6,11 @@ class Category(models.Model):
     title = models.CharField(
         max_length=255,
         verbose_name="Название",
+    )
+    image = models.ImageField(
+        verbose_name="Картинка",
+        null=True,
+        blank=True
     )
 
     def __str__(self):
@@ -71,3 +77,39 @@ class News(models.Model):
     class Meta:
         verbose_name = "Новость"
         verbose_name_plural = "Новости"
+
+
+class CartItem(models.Model):
+    cart = models.ForeignKey(
+        to="store.Cart",
+        on_delete=models.CASCADE,
+        verbose_name="Корзина",
+        related_name="items"
+    )
+    product = models.ForeignKey(
+        to="store.Product",
+        on_delete=models.CASCADE,
+        verbose_name="Продукт"
+    )
+    count = models.BigIntegerField(
+        verbose_name="Количество"
+    )
+
+    def __str__(self):
+        return f"{str(self.product)} | {str(self.cart)}"
+
+
+class Cart(models.Model):
+    user = models.OneToOneField(
+        to=User,
+        on_delete=models.CASCADE,
+        related_name="cart",
+        verbose_name="Пользователь"
+    )
+
+    def __str__(self):
+        return str(self.user)
+
+    class Meta:
+        verbose_name = "Корзина пользователя"
+        verbose_name_plural = "Корзины пользователей"

@@ -28,9 +28,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "django_filters",
     "rest_framework",
+    'rest_framework.authtoken',
     "corsheaders",
 
-    'modules.store'
+    'modules.store',
+    'modules.core'
 ]
 
 MIDDLEWARE = [
@@ -104,6 +106,9 @@ REST_FRAMEWORK = {
         "django_filters.rest_framework.DjangoFilterBackend",
     ],
     "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
 }
 
 
