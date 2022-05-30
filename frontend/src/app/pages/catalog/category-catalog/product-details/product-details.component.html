@@ -1,0 +1,37 @@
+<div class="content">
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <a [routerLink]="['../../']">Каталог</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a [routerLink]="['../']" [queryParams]="{category: productItem.category.id}">{{productItem.category.title}}</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>{{productItem.title}}</nz-breadcrumb-item>
+  </nz-breadcrumb>
+  
+  <section class="section first">
+    <h1>{{productItem.title}}</h1>
+
+    <div class="product-details">
+      <div class="media-wrapper">
+        <img src="{{productItem.image}}" alt="img">
+      </div>
+      <div class="text-wrapper">
+        <div class="cost-wrapper">
+          <h1 class="cost">{{productItem.cost}} ₽</h1>
+          <button class="button buy" (click)="addToCart()">В корзину</button>
+        </div>
+        <div class="count-wrapper">
+          <h2>В наличии:</h2>
+          <p>{{productItem.count}} шт.</p>
+        </div>
+        <div class="description-wrapper">
+          <h2>Описание:</h2>
+          <p>{{productItem.description}}</p>
+        </div>
+        
+      </div>     
+    </div>
+    
+  </section>
+</div>

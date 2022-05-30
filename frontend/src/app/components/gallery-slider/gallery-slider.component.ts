@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class GallerySliderComponent implements OnInit {
   images: string[] = [
     'assets/img/gallery/1.jpg',
-    'assets/img/gallery/1.jpg'
+    'assets/img/gallery/2.jpg',
+    'assets/img/gallery/3.jpg',
+    'assets/img/gallery/4.jpg'
   ];
 
   constructor() { }

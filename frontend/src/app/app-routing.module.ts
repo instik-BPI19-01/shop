@@ -1,28 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './pages/main/main.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./pages/main/main.module').then(m => m.MainModule)
+    loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule),
   },
   {
-    path: 'catalog',
-    loadChildren: () => import('./pages/catalog/catalog.module').then(m => m.CatalogModule),
-    data: {
-      breadcrumb: 'Каталог'
-    },
+    path: 'auth',
+    loadChildren: () => import('./pages/authorization/authorization.module').then(m => m.AuthorizationModule),
   },
   {
-    path: 'about',
-    loadChildren: () => import('./pages/about/about.module').then(m => m.AboutModule)
+    path: 'not-found',
+    component: NotFoundComponent
   },
-  { 
-    path: 'not-found', 
-    loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule)
-  },
-  { path: '**', redirectTo: '/not-found' },
+  { path: '**', redirectTo: 'not-found' },
 ];
 
 @NgModule({

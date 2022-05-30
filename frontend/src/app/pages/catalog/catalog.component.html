@@ -1,6 +1,18 @@
 <div class="content">
-  <section class="section">
+  <section class="section first">
     <h1>Каталог</h1>
-    
+
+    <div class="categories-wrapper">
+      <ng-container *ngFor="let item of categoryList$ | async">
+        <a [routerLink]="['/catalog/products']" [queryParams]="{category: item.id}" class="categories-item">
+          <div class="media-wrapper">
+            <img src="{{item.image}}" alt="img">
+          </div>
+          <div class="text-wrapper">
+            <h2>{{item.title}}</h2>          
+          </div>
+        </a>
+      </ng-container>      
+    </div>    
   </section>
 </div>

@@ -1,0 +1,106 @@
+<div class="container">
+  <nz-tabset nzType="card">
+    <nz-tab nzTitle="Авторизация">
+      <div class="auth-form-wrapper">
+        <h1>Авторизация</h1>    
+        <form class="auth-form" [formGroup]="authForm" (ngSubmit)="submitAuth()"> 
+          <div class="form-control">
+            <label>Логин:</label>
+            <input type="text" placeholder="Введите логин" formControlName="login">
+            <div 
+              *ngIf="authLogin?.invalid && authLogin?.touched" 
+              class="validation"
+            >
+              <span *ngIf="authLogin?.errors?.['required']">
+                Поле логин не может быть пустым
+              </span>                 
+            </div>
+          </div>
+      
+          <div class="form-control">
+            <label>Пароль:</label>
+            <input type="password" placeholder="Введите пароль" formControlName="password">
+            <div 
+              *ngIf="authPassword?.invalid && authPassword?.touched" 
+              class="validation"
+            >
+              <span *ngIf="authPassword?.errors?.['required']">
+                Поле пароль не может быть пустым
+              </span>
+              <span *ngIf="authPassword?.errors?.['minlength']">
+                Пароль должен быть не менее 
+                {{authPassword?.errors?.['minlength']?.['requiredLength']}}
+                символов
+              </span>
+            </div>
+          </div>      
+          <button class="button auth" type="submit" [disabled]="authForm.invalid">
+            Войти
+          </button>
+        </form>    
+        <a routerLink="/">На главную</a>
+      </div>    
+    </nz-tab>
+
+    <nz-tab nzTitle="Регистрация">
+      <div class="auth-form-wrapper">
+        <h1>Регистрация</h1>    
+        <form class="auth-form" [formGroup]="regForm" (ngSubmit)="submitReg()"> 
+          <div class="form-control">
+            <label>Логин:</label>
+            <input type="text" placeholder="Введите логин" formControlName="login">
+            <div 
+              *ngIf="regLogin?.invalid && regLogin?.touched" 
+              class="validation"
+            >
+              <span *ngIf="regLogin?.errors?.['required']">
+                Поле логин не может быть пустым
+              </span>                 
+            </div>
+          </div>
+      
+          <div class="form-control">
+            <label>Пароль:</label>
+            <input type="password" placeholder="Введите пароль" formControlName="password">
+            <div 
+              *ngIf="regPassword?.invalid && regPassword?.touched" 
+              class="validation"
+            >
+              <span *ngIf="regPassword?.errors?.['required']">
+                Поле пароль не может быть пустым
+              </span>
+              <span *ngIf="regPassword?.errors?.['minlength']">
+                Пароль должен быть не менее 
+                {{regPassword?.errors?.['minlength']?.['requiredLength']}}
+                символов
+              </span>
+            </div>
+          </div>      
+
+          <div class="form-control">
+            <label>Повторите пароль:</label>
+            <input type="password" placeholder="Введите пароль еще раз" formControlName="passwordConfirmation">
+            <div 
+              *ngIf="regPasswordConfirmation?.invalid && regPasswordConfirmation?.touched" 
+              class="validation"
+            >
+              <span *ngIf="regPasswordConfirmation?.errors?.['required']">
+                Поле пароль не может быть пустым
+              </span>            
+              <span *ngIf="regPasswordConfirmation?.errors?.['passwordDontMatch']">
+                Пароли не совпадают
+              </span>  
+            </div>
+          </div>
+
+          <button class="button auth" type="submit" [disabled]="regForm.invalid">
+            Зарегистрироваться
+          </button>                
+        </form>    
+        <a routerLink="/">На главную</a>
+      </div>     
+    </nz-tab>
+  </nz-tabset>
+
+   
+</div>
