@@ -1,0 +1,18 @@
+<div class="content">
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>
+      <a [routerLink]="['../']">Каталог</a>
+    </nz-breadcrumb-item>    
+    <nz-breadcrumb-item>{{categoryTitle}}</nz-breadcrumb-item>
+  </nz-breadcrumb>
+  
+  <section class="section first">
+    <h1>{{categoryTitle}}</h1>
+    
+    <div class="products-wrapper">
+      <ng-container *ngFor="let item of productList$ | async">
+        <app-product-item [productItem]="item"></app-product-item>
+      </ng-container>
+    </div>
+  </section>
+</div>

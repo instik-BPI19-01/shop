@@ -23,9 +23,21 @@
       </ul>
     </nav>
     
-    <div class="profile-block">
-      <a routerLink="/cart"><img src="assets/img/icons/cart.png" alt=""></a>
-      <a routerLink="/login" class="login">Войти</a>
-    </div>    
+    <ng-container *ngIf="isAuth; else noUser">
+      <div class="profile-block">   
+        <span class="login">{{username}}</span>   
+        <a routerLink="/cart" class="cart-icon">
+          <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+        </a>
+        <a class="logout-icon" (click)="logout()">
+          <i nz-icon nzType="export" nzTheme="outline"></i>
+        </a>
+      </div> 
+    </ng-container>
+           
+    <ng-template #noUser>
+      <a class="login" routerLink="/auth">Войти</a>
+    </ng-template>
   </div> 
 </header>
+

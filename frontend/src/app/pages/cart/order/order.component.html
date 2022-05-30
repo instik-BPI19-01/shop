@@ -1,0 +1,30 @@
+<div class="content">
+  <section class="section first">
+    <h1>Оформление заказа</h1>
+
+    <form class="order-form" [formGroup]="orderForm" (ngSubmit)="submitOrder()"> 
+      <div class="form-control">
+        <label>Страна:</label>
+        <input type="text" placeholder="Введите вашу страну" formControlName="country">        
+      </div>
+      <div class="form-control">
+        <label>Адрес:</label>
+        <input type="text" placeholder="Введите ваш адрес" formControlName="address">        
+      </div>
+      <div class="form-control">
+        <label>Индекс:</label>
+        <input type="text" placeholder="Введите ваш почтовый индекс" formControlName="index">        
+      </div>
+      <div class="form-control">
+        <label>Способ оплаты:</label>
+        <select type="text" formControlName="payment">
+          <option value="" disabled selected hidden>Выберите способ</option>
+          <option>VISA</option>
+          <option>MasterCard</option>
+          <option>QIWI</option>
+        </select>        
+      </div>
+      <button class="button" type="submit">Оформить заказ</button>
+    </form>
+  </section>
+</div>

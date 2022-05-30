@@ -1,0 +1,20 @@
+<div class="content">
+  <section class="section first">
+    <h1>Новости</h1>
+    
+    <div class="news-wrapper">
+      <ng-container *ngFor="let news of newsList$ | async">
+        <div class="news-item">
+          <div class="media-wrapper">
+            <img src="{{news.image}}" alt="">
+          </div>
+          <div class="text-wrapper">
+            <h2>{{ news.title }}</h2>          
+            <p>{{ news.description }}</p>
+          </div>          
+        </div>      
+      </ng-container>
+    </div>
+    
+  </section>
+</div>

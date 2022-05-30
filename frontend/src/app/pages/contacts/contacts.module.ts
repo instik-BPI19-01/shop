@@ -1,17 +1,20 @@
 import { CommonModule } from '@angular/common';
 import {NgModule} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NotFoundComponent } from './not-found.component';
+
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+import { ContactsComponent } from './contacts.component';
 
 const routes: Routes = [
-  { path: '', component: NotFoundComponent}
+  { path: '', component: ContactsComponent}
 ];
 
 @NgModule({
-  declarations: [NotFoundComponent],
+  declarations: [ContactsComponent],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
+    NzBreadCrumbModule
   ],
 })
-export class NotFoundModule {}
+export class ContactsModule {}

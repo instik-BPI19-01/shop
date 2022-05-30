@@ -41,15 +41,30 @@ header {
 .profile-block {
   display: flex;
   align-items: center;
+  column-gap: 20px;
 
   img {
     width: 40px;
-    margin-right: 10px;
+  } 
+
+  .cart-icon i {
+    color: white;
+    font-size: 37px;
   }
 
-  .login {
+  .logout-icon i {
     color: white;
-    font-size: 24px;
+    font-size: 32px;
   }
 }
 
+a.login {
+  text-decoration: underline;
+}
+
+.login {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+}

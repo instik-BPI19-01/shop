@@ -1,0 +1,38 @@
+<div class="content">
+  <section class="section first">
+    <h1>Корзина</h1>
+
+    <div class="info-block">         
+      <div class="text-wrapper">
+        <h2>Количество товаров: <span>{{cartItemList.length}}</span></h2>
+        <h2>Общая стоимость: <span>{{fullCost}} ₽</span></h2>
+      </div>
+      <div class="button-block">
+        <button class="button" routerLink="order">Оформить заказ</button>     
+        <button class="button clear" (click)="emptyCart()">Очистить корзину</button>  
+      </div>      
+    </div>
+    
+    <div class="products-wrapper">
+      <ng-container *ngFor="let item of cartItemList">
+        <div class="product-item">
+          <div class="media-wrapper">
+            <img src="http://24ag-dev.cifra-k.ru:9090{{item.product.image}}" alt="">
+          </div>
+          <div class="text-wrapper">
+            <h2>{{ item.product.title }}</h2>          
+            <h2>{{ item.count }} шт.</h2>
+          </div>
+          <div class="text-wrapper flex">
+            <h1>{{item.product.cost}} ₽</h1>
+            <a class="delete-icon" (click)="deleteItem()">
+              <i nz-icon nzType="delete" nzTheme="outline" class></i>
+            </a>            
+          </div>          
+        </div>
+      </ng-container>
+
+    </div>
+    
+  </section>
+</div>
